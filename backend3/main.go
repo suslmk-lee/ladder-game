@@ -14,6 +14,13 @@ type LadderRequest struct {
 func main() {
 	r := gin.Default()
 
+	// 헬스 체크 엔드포인트 추가
+	r.GET("/health", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status": "ok",
+		})
+	})
+
 	r.POST("/map", func(c *gin.Context) {
 		var req LadderRequest
 		if err := c.BindJSON(&req); err != nil {
