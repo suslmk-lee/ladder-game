@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ladder-game-config
+  namespace: ladder-game
+data:
+  LADDER_MANAGER_URL: "http://ladder-manager-service:8080"
+  LADDER_GENERATOR_URL: "http://ladder-generator-service:8080"
+  RESULT_MAPPER_URL: "http://result-mapper-service:8080"
+  UI_SERVICE_URL: "http://ui-service:80"
