@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ladder-generator
-        image: ladder-generator:latest
+        image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-generator:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -40,6 +40,8 @@ spec:
             port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
+      imagePullSecrets:
+      - name: ncr
 ---
 apiVersion: v1
 kind: Service

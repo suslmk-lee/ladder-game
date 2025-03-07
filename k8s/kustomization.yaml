@@ -5,8 +5,9 @@ namespace: ladder-game
 
 resources:
   - namespace.yaml
+  - secret.yaml
+  - configmap.yaml
   - ui-deployment.yaml
   - backend1-deployment.yaml
   - backend2-deployment.yaml
   - backend3-deployment.yaml
-  - configmap.yaml

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ui
-        image: ladder-game-ui:latest
+        image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-ui:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -40,6 +40,8 @@ spec:
             port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
+      imagePullSecrets:
+      - name: ncr
 ---
 apiVersion: v1
 kind: Service
@@ -62,8 +64,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-  - host: ladder-game.local
+  - host: ladder-game.125.6.40.43.nip.io
     http:
       paths:
       - path: /
