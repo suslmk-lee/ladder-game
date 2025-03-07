@@ -15,6 +15,13 @@ type LadderRequest struct {
 func main() {
 	r := gin.Default()
 
+	// 헬스 체크 엔드포인트 추가
+	r.GET("/health", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status": "ok",
+		})
+	})
+
 	// API 엔드포인트
 	r.POST("/ladder", func(c *gin.Context) {
 		var req LadderRequest
@@ -25,7 +32,7 @@ func main() {
 
 		// 백엔드 1(Ladder Manager)에 요청
 		jsonData, _ := json.Marshal(req)
-		resp, err := http.Post("http://ladder-manager:8080/run", "application/json", bytes.NewBuffer(jsonData))
+		resp, err := http.Post("http://ladder-manager-service:8080/run", "application/json", bytes.NewBuffer(jsonData))
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to contact backend"})
 			return

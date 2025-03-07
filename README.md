@@ -268,3 +268,25 @@ docker build -t ladder-game-ui .
 
 # UI 서비스 실행
 docker run -p 8080:8080 ladder-game-ui
+
+
+```shell
+cd /Users/minkyulee/GitRepo/01.gitHub/suslmk-lee/ladder-game/backend1 && docker build -t 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-manager .
+
+cd /Users/minkyulee/GitRepo/01.gitHub/suslmk-lee/ladder-game/backend2 && docker build -t 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-generator .
+
+cd /Users/minkyulee/GitRepo/01.gitHub/suslmk-lee/ladder-game/backend3 && docker build -t 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-mapper .
+
+cd /Users/minkyulee/GitRepo/01.gitHub/suslmk-lee/ladder-game/ui && docker build -t 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-ui .
+
+docker push 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-manager
+docker push 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-generator
+docker push 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-mapper
+docker push 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-ui
+```
+
+# 각 서비스 실행
+docker run -p 8080:8080 ladder-game-manager
+docker run -p 8080:8080 ladder-game-generator
+docker run -p 8080:8080 ladder-game-mapper
+docker run -p 8080:8080 ladder-game-ui
