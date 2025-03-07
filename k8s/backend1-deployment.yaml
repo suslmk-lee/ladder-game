@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ladder-manager
-        image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-manager:latest
+        image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-manager:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

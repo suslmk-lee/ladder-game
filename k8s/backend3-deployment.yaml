@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: result-mapper
-        image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/result-mapper:latest
+        image: 44ce789b-kr1-registry.container.nhncloud.com/container-platform-registry/ladder-game-mapper:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
